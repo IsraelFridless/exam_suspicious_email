@@ -12,4 +12,3 @@ def is_explosive_message(message: dict) -> bool:
         message['sentences'],
         lambda sentences: any('explosive' in s.lower() for s in sentences)
     )
-

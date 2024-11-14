@@ -16,5 +16,5 @@ def produce_hostage_message(message: dict):
         key=message['id'].encode('utf-8'),
         value=message
     )
-    print(f'Received message: {message}')
+    print(f'Contained hostage message sent: {message}')
     producer.flush()

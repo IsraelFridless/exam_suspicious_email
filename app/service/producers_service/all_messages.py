@@ -15,5 +15,5 @@ def produce_message(message: dict):
         key=message['id'].encode('utf-8'),
         value=message
     )
-    print(f'Received message: {message}')
+    print(f'Sent message: {message}')
     producer.flush()

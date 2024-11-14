@@ -8,7 +8,7 @@ class SentenceHostage(Base):
     __tablename__ = "suspicious_hostage_content"
     id = Column(Integer, primary_key=True, autoincrement=True)
     sentence = Column(String, nullable=False)
-    message_id = Column(String, ForeignKey('messages.id'))
+    message_id = Column(Integer, ForeignKey('messages.id'), nullable=False)
 
     message = relationship(
         'Message',

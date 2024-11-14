@@ -18,5 +18,5 @@ def produce_explosive_message(message: dict):
         key=message['id'].encode('utf-8'),
         value=sentences_ordered_message
     )
-    print(f'Sent message: {sentences_ordered_message}')
+    print(f'Contained explosive message sent: {sentences_ordered_message}')
     producer.flush()

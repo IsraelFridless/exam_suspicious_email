@@ -6,15 +6,16 @@ from app.utils.data_handling import *
 
 
 def process_hostage_message(message: dict):
-    location: Location = message_to_location(message)
-    device: Device = message_to_device(message)
+    message_details: Message = convert_data_to_message(message)
+    message_id = insert_message(message_details)
 
-    location_id: int = insert_location(location)
-    device_id: str = insert_device(device)
-    message_details: Message = convert_data_to_message(message, location_id, device_id)
+    location: Location = message_to_location(message, message_id)
+    device: Device = message_to_device(message, message_id)
 
-    insert_message(message_details)
+    insert_location(location)
+    insert_device(device)
 
-    sentences: List[SentenceHostage] = message_to_hostage_sentences(message)
+
+    sentences: List[SentenceHostage] = message_to_hostage_sentences(message, message_id)
 
     insert_many_hostage_sentences(sentences)
