@@ -5,6 +5,7 @@ import sys
 from dotenv import load_dotenv
 from kafka import KafkaConsumer
 
+from app.service.hostage_messages_service import process_hostage_message
 
 load_dotenv(verbose=True)
 
@@ -17,6 +18,7 @@ def consume_hostage_message():
     )
     for message in consumer:
         print(message)
+        process_hostage_message(message.value)
 
 
 if __name__ == '__main__':
